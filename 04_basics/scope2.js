@@ -50,3 +50,11 @@ console.log(addTwo(3)); //5
 
 //CONCEPT OF HOISTING (HOW JS STORES VARIABLE USING TREE DATA STRUCTURE)
 //NEXT ITERATION IS ALSO COMING...
+
+
+//ARROW FUNCTION
+const res = (num1)=>{
+    return num1 * num1
+
+}
+console.log(res(5))
