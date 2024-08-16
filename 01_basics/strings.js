@@ -52,7 +52,7 @@ console.log(url.includes('hitesh')); //true
 
 //SPLIT (Converting string to array)
 const address = "327-Kailashpuri-Mughalsarai-Chandauli-UttarPradesh";
-//const splitAddress = address.split('-', 1); //[ '327', 'Kailashpuri', 'Mughalsarai', 'Chandauli', 'UttarPradesh' ]
+//const splitAddress = address.split('-'); //[ '327', 'Kailashpuri', 'Mughalsarai', 'Chandauli', 'UttarPradesh' ]
 const splitAddress = address.split('-', 1); //[ '327' ]
 console.log(splitAddress);
 
