@@ -136,3 +136,29 @@ console.log(entry);
 
 //In objects before using any property do check whether that property exist or not
 console.log(internDetail.hasOwnProperty("internPersonalData")) //true
+
+//DESTRUCTURING OF OBJECT -> When you will get objects from react then you will destructure and then look at those values, you can access the values directly also but destructuring makes it more easy
+const course = {
+    courseName: "js in hindi",
+    coursePrice: 999,
+    courseInstructor: "Hitesh Reshmaiya"
+}
+
+//const {key: alias} = object name
+const {courseInstructor} = course; //Destructured, now you don't need to use dot operator to access that key
+console.log(courseInstructor); //Hitesh Reshmaiya
+const {coursePrice: price} = course; 
+console.log(price); //999
+
+//Arrays are also destructured but would be taught later on
+
+//earlies values from API came in XML but now it's mostly JSON object
+/*{
+    "name": "Deepanshi",
+    "age": 22,
+    "price": "free"
+}
+    or we will get the array of objects
+[{},{},{}]
+
+IN THIS COURSE YOU WILL HANDLE MANY API RESPONSES WHICH WILL BE JSON OBJECT (JAVA SCRIPT OBJECT NOTATION), OR ARRAY OF JSON OBJECTS*/
