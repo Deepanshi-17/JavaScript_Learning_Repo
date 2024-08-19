@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Learning</title>
+</head>
+<body>
+    <div class = "bg black">
+        <h1 class = "heading"> DOM Learning on chai or code</h1>
+        <p>Lorem, ipsum dolor.
+        </p>
+    </div>
+</body>
+</html>
+
+<!--You can visit brendan eich wikipedia page and open the console. write console.log(windows), 
+you will get windows object. Now, do, console.log(document) then you will get document property 
+stored in windows object which is accessible via windows.document but as it is very common hence, 
+can be accessed directly by console.log(windows). Also this document will only have HTML file no 
+other property. If you want all the property then console.dir(document) then you will get all the 
+property -->
+
+<!--
+
+DIAGRAM -> (DOM)
+
+                                                   WINDOWS
+                                                      |
+                                                   DOCUMENT
+                                                      |
+                                                     HTML
+                                              /              \
+                                            HEAD             BODY
+                                           /    \              |
+                                       TITLE   META       DIV->ATTRIBUTE
+                                        |       |             /     \
+                                    TEXT NODE  ATTRIBUTE  Heading   Paragraph
+                                                           /    \           |
+                                                    Text node    Attribute  Text node
+-->
+
+<!-- Other methods on document
+ console.log(document.baseURI);      Gives base URL of the web page
+ console.log(document.links)   Gives all the link present in the web page (Links list will be given in the form of HTML collection not arrays, hence, the properties of arrays won't be available here.)
+
+ Selecting any element
+ document.getElementbyId('firstHeading')
+ //Output-> it will get the entire tag of h1 having id == 'firstHeading'. This is called as DOM Manipulation
+
+ document.getElementById.('firstHeading').innerHTML = "<H1>Chai or code</H1>"

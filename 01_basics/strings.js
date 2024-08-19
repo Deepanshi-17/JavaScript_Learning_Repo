@@ -36,7 +36,7 @@ Both can accept positive and negative value*/
 //TRIM
 const stringFromForm = "    Deepanshi    i";
 console.log(stringFromForm);
-console.log(stringFromForm.trim()); //Output-> Deepanshi
+console.log(stringFromForm.trim()); //Output-> Deepanshi   i
 console.log(stringFromForm.trimStart()); //Output -> "Deepanshi   i"
 //trim removes whitespaces
 
