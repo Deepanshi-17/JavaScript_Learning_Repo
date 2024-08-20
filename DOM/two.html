@@ -1,0 +1,89 @@
+<!--Parent, child and siblings relationship-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai or Code</title>
+</head>
+<body style = "background-color: blanchedalmond;">
+    <div class = "parent">
+        <div class = "day">"Monday"</div>
+        <div class = "day">"Tuesday"</div>
+        <div class = "day">"Wednesday"</div>
+        <div class = "day">"Thursday"</div>
+        <div class = "day">"Friday"</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent');
+    console.log(parent);
+    console.log(parent.children) //you will get HTML Collection of children
+    /* Output->
+    HTMLCollection(5) [div.day, div.day, div.day, div.day, div.day]
+    0
+    : 
+    div.day
+    1
+    : 
+    div.day
+    2
+    : 
+    div.day
+    3
+    : 
+    div.day
+    4
+    : 
+    div.day
+    length
+    : 
+    5
+    [[Prototype]]
+    : 
+    HTMLCollection
+*/
+ console.log(parent.children[1].innerHTML) // Output-> "Tuesday"
+ //Running for loop on HTML Collection. 
+ for(let i = 0; i < parent.children.length; i++)
+ {
+    //console.log(parent.children[i].innerHTML)
+ }
+ /*
+ Output->
+    "Tuesday"
+    "Monday"
+    "Tuesday"
+    "Wednesday"
+    "Thursday"
+    "Friday"
+*/
+parent.children[1].style.backgroundColor = "orange" 
+
+//INTERESTING PROPERTIES
+console.log(parent.firstElementChild)
+// Output <div class=​"day">​"Monday"​</div>​
+console.log(parent.lastElementChild)
+// Output <div class=​"day">​"Monday"​</div>​
+
+//AS YOU TRAVERSING FROM PARENT TO CHILDREN IN THE VERY SAME WAY YOU CAN TRAVERSE FROM CHILDREN TO PARENT
+const dayOne = document.querySelector(".day")
+console.log(dayOne.parentElement);
+/* Output->
+    <div class="parent">
+        <div class="day">"Monday"</div>
+        <div class="day" style="background-color: orange;">"Tuesday"</div>
+        <div class="day">"Wednesday"</div>
+        <div class="day">"Thursday"</div>
+        <div class="day">"Friday"</div>
+    </div>
+*/
+
+//YOU CAN ALSO TRAVERSE FROM CURRENT NODE TO SIBLING NODE
+console.log(dayOne.nextElementSibling)
+/*Output-> 
+<div class="day" style="background-color: orange;">"Tuesday"</div>*/
+console.log("Nodes: ", parent.childNodes) //Output -> NodeList[11]. It will contain even new line thing also
+</script>
+</html>
