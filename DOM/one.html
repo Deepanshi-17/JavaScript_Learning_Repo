@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>DOM Learning</title>
+    <style>
+        .bg_black{
+            background-color: blanchedalmond;
+        }
+    </style>
 </head>
-<body>
-    <div class = "bg black">
-        <h1 class = "heading"> DOM Learning on chai or code</h1>
+<body class = "bg_black">
+    <div>
+        <h1 id= "title" class = "heading"> DOM Learning on chai or code <span style = "display: none">testing ho rhi</span></h1>
         <p>Lorem, ipsum dolor.
         </p>
+        <input type="password"></input>
+        <ul>
+            <li class = "list-item">"One"</li>
+            <li class = "list-item">"Two"</li>
+            <li class = "list-item">"Three"</li>
+            <li class = "list-item">"Four"</li>
+        </ul>
     </div>
 </body>
 </html>
@@ -47,4 +59,129 @@ DIAGRAM -> (DOM)
  document.getElementbyId('firstHeading')
  //Output-> it will get the entire tag of h1 having id == 'firstHeading'. This is called as DOM Manipulation
 
- document.getElementById.('firstHeading').innerHTML = "<H1>Chai or code</H1>"
+ document.getElementById('firstHeading').innerHTML = "<H1>Chai or code</H1>
+ 
+ 
+ docuemnt.getElementById('title') // focus on the return type, it gives you the entire HTML Tag.
+ document.getElementById('title').id // gives you the id -> title
+ document.getElementById('tile').class // undefined, as in DOM nothing is recognized as class, it is recognized as class name
+ document.getElementById('title').className //heading, class is recognized as className. (IN DOM ALSO)
+
+ YOU CAN ASK FOR ANY ATTRIBUTE
+
+ document.getElementById('title').getAttribute('id')  //Output = title
+ document.getElementById('title').getAttribute('class') //Output =  heading
+
+ OVERWRITING ANY ATTRIBUTE
+ document.getElementById('title').setAttribute('class', 'test') //output -> undefined, but class name form heading to test
+ It will always overwrite.
+
+ //If you don't want to overwrite, you only want to add then
+  document.getElementById('title').setAttribute('class', 'test heading') //both test and heading are present in the class
+
+  You can also store it in any variable.
+  const title = document.getElementById('title')
+  title.style.backgroundColor = 'white' //Output-> white
+
+  title.style.padding = "15px"
+  title.style.borderRadius = "5px
+  
+
+  //INTERESTING CONCEPT
+
+  title.innerText 
+  title.textContent
+  title.innerHTML 
+  
+  ?? Difference between all three
+  
+  <h1 id= "title" class = "heading"> DOM Learning on chai or code <span style = "display: none">testing ho rhi</span></h1>"
+  title.innerText  Output-> 'DOM Learning on chai or code'
+  title.textContent Output-> ' DOM Learning on chai or code testing ho rhi'
+  title.innerHTML Output->  'DOM Learning on chai or code <span style="display: none">testing ho rhi</span>'
+
+  document.getElementsByClassName('heading')
+  //OUTPUT
+    HTMLCollection [h1#title.heading, title: h1#title.heading]
+    0
+    : 
+    h1#title.heading
+    title
+    : 
+    h1#title.heading
+    length
+    : 
+    1
+    [[Prototype]]
+    : 
+    HTMLCollection
+
+    //QUERY SELECTOR
+    document.querySelector('h1')
+    OUTPUT -> 
+    <h1 id=​"title" class=​"heading">​…​</h1>​" DOM Learning on chai or code "<span style=​"display:​ none">​testing ho rhi​</span>​</h1>​
+
+    (gives the first tag having tag h1) if there are multiple and you want to select all then use document.querySelectorAll)
+
+    document.querySelector('input[type = "password"]')
+   <input type=​"password">​
+
+   document.querySelector('#title') //selecting id using hashtag
+   document.querySelector('.heading') //selecting class using dot 
+
+   const myUlDocument = document.querySelector('ul')
+  -> undefined
+   const turnGreen = myUlDocument.querySelector('li')
+  -> undefined
+   turnGreen.style.backgroundColor = "green"
+  ->'green'
+
+  //DOM MANIPULATION IS VERY EASY ONLY IF YOU KNOW HOW TO SELECT THE ELEMENTS.
+
+  document.querySelectorAll('li')
+  -> NodeList(2) [li, li]0: li1: lilength: 2[[Prototype]]: NodeList
+  const liList = document.querySelectorAll('li')
+  -> undefined
+  liList[1].style.backgroundColor = "yellow"
+  -> 'yellow'
+  liList[0].style.backgroundColor = "pink"
+  -> 'pink'
+
+  YOU HAVE TO UNDERSTAND THAT NODE LIST AND HTML COLLECTION ARE NOT PURE ARRAYS AND ARE DIFFERENT FROM ARRAYS IN CERTAIN PROPERTIES BUT ALSO DO SHARE MANY PROPERTIES. HERE, IN THE ABOVE SCENARIO WE ARE OBTAINING NODE LIST, NOT ARRAY PURELY.
+
+  MAJOR DIFFERENCE BETWEEN QUERY SELECTOR AND QUERY SELECTOR ALL, THAT IN QUERY SELECTOR ALL YOU WILL GET NODELIST AND ELSE YOU WILL GET THAT PARTICULAR ELEMENT.
+
+  applying forEach loop on node list obtained by using querySelectorAll
+  const list_ = document.querySelectorAll('li')
+  undefined
+  list_.forEach(function (item){
+      item.style.color = "red"
+  })
+
+  You can convert node list into array, to use all the functionality of the array
+
+  IN HTML COLLECTION THERE IS NO LOOPING METHOD (NO FOR-EACH LOOP). HENCE YOU WILL NEED TO CONVERT HTML COLLECTION INTO ARRAY
+
+   const tempList = document.getElementsByClassName('list-item')
+  -> HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+    0
+    : 
+    li.list-item
+    1
+    : 
+    li.list-item
+    2
+    : 
+    li.list-item
+    3
+    : 
+    li.list-item
+    length
+    : 
+    4
+
+    CONVERTING TO ARRAY
+    const convertedArray = Array.from(tempList)
+
+    now you can apply forEach loop on this converted array
+-->
