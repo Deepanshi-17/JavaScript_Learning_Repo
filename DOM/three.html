@@ -1,0 +1,27 @@
+<!---Creating new DOM element-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai or Code</title>
+</head>
+<body style = "background-color: blanchedalmond;">
+    
+</body>
+<script>
+    const div = document.createElement('div');
+    console.log(div) //<div></div>
+    div.className = "main"
+    div.id = Math.round(Math.random()*10 + 1)
+    div.setAttribute('title', 'generated-title')
+    div.style.backgroundColor = "green"
+    //You have created a div but why is it not visible on the web page? Because you have not attached it on the document, that div is only present in the memory as of now.
+    //div.innerText = "hello"
+    /*But this requires two round trips, it first brings the original value and then overwrites it wherese div.setAttribute() has only one round trip and directly overwrites the value. A better way to fill text in this div*/
+    const tex = document.createTextNode("JOE");
+    div.appendChild(tex);
+    document.body.appendChild(div)
+</script>
+</html>
