@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai or Code</title>
+</head>
+<body style = "background-color: bisque; color: brown;">
+    <ul class = "language">
+        <li>"JavaScript"</li>
+    </ul>
+</body>
+<script>
+    function fun (langauge_name) {
+        const selec = document.querySelector('.language')
+        const listItem = document.createElement('li');
+        listItem.style.backgroundColor = "pink"
+        listItem.style.color = "green"
+        listItem.style.padding = "15px"
+        listItem.style.borderRadius = "25px"
+        const textNo = document.createTextNode(langauge_name);
+        listItem.appendChild(textNo);
+        selec.appendChild(listItem)
+    }
+    fun("python");
+    fun("Ruby");
+    fun("Java");
+    fun("C++");
+    fun("C");
+
+    //EDIT VALUES IN DOCUMENT OBJECT MODEL
+    const second_language = document.querySelector("li:nth-child(2)")
+    //second_language.innerHTML('Golang') (although this approach will work but this is not the most optimized way)
+    /*Create a full new element and attach it with the list*/
+    const lis = document.createElement('li');
+    lis.appendChild(document.createTextNode("Golang"));
+    second_language.replaceWith(lis)
+
+    //Another method of editing values using outerHTML
+    const firstLan = document.querySelector('li:first-child') 
+    firstLan.outerHTML = "<li>TypeScript</li>"
+
+    //REMOVE
+    const lastChild = document.querySelector('li:last-child')
+    lastChild.remove()
+</script>
+</html>
