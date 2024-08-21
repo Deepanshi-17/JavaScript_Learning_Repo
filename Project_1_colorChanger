@@ -1,6 +1,6 @@
-Creating projects on DOM (DOCUMENT OBJECT MODEL)
+//Creating projects on DOM (DOCUMENT OBJECT MODEL)
 
-Project 1 - COLOR CHANGER PROJECT 
+//Project 1 - COLOR CHANGER PROJECT 
 ```JavaScript 
 const buttons = document.querySelectorAll('.button')
 console.log(buttons)

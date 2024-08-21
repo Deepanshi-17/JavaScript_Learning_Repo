@@ -1,4 +1,4 @@
-Project 2 - Body Mass Index Calculator
+//Project 2 - Body Mass Index Calculator
 
 ```javascript
 const form = document.querySelector('form')

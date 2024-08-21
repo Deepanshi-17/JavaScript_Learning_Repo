@@ -1,0 +1,8 @@
+//Project 3 Clock display (important concept of interval)
+```jaavscript
+const clock = document.querySelector('#clock')
+setInterval(function(){
+  const Date_ = new Date()
+  clock.innerHTML = Date_.toLocaleTimeString()
+}, 1000) //after how many second this code will return //Set interval defines that after how many time the script should run the code.
+```
